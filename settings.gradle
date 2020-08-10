@@ -1,0 +1,3 @@
+include ':baseframe'
+include ':app'
+rootProject.name = "note"
