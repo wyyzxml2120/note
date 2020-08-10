@@ -11,4 +11,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
+
+
+    public class ClickProxy {
+
+        //更换主题
+        public void changeTheme() {
+            //nav().navigate(R.id.action_mainFragment_to_loginFragment);
+        }
+    }
+
 }
