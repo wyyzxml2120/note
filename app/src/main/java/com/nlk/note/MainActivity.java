@@ -1,9 +1,13 @@
 package com.nlk.note;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.ui.NavigationUI;
 
 import android.os.Bundle;
-import android.widget.Button;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -12,18 +16,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button button = (Button)findViewById(R.id.button);
 
-//        button.getBackground().setAlpha(50);
+        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+        BottomNavigationView bottomNav = findViewById(R.id.nav_bottom);
+        NavigationUI.setupWithNavController(bottomNav, navController);
     }
 
-
-    public class ClickProxy {
-
-        //更换主题
-        public void changeTheme() {
-            //nav().navigate(R.id.action_mainFragment_to_loginFragment);
-        }
+    @Override
+    public boolean onSupportNavigateUp() {
+        return Navigation.findNavController(this, R.id.nav_host_fragment).navigateUp();
     }
+
 
 }
