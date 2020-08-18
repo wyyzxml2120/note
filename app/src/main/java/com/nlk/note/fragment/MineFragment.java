@@ -11,9 +11,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 
+import com.nlk.baseframe.ui.page.BaseFragment;
 import com.nlk.note.R;
 
-public class MineFragment extends Fragment {
+public class MineFragment extends BaseFragment {
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -32,14 +33,10 @@ public class MineFragment extends Fragment {
 
     }
 
-    public static MineFragment getInstance() {
-        return new MineFragment();
-    }
-
-    public MineFragment() {
-    }
-
     public class ClickProxy {
 
+        public void changeTheme(){
+            nav().navigate(R.id.action_MineFragment_to_ChangeThemeFragment);
+        }
     }
 }

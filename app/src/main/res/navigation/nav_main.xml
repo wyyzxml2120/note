@@ -3,21 +3,37 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@id/navigation_home">
+    app:startDestination="@id/navigation_mine">
 
     <fragment
-        android:id="@+id/navigation_home"
+        android:id="@+id/navigation_matter"
         android:name="com.nlk.note.fragment.MatterFragment"
         android:label="@string/bottom_matter"
         tools:layout="@layout/fragment_matter" />
+
     <fragment
-        android:id="@+id/navigation_dashboard"
+        android:id="@+id/navigation_view"
         android:name="com.nlk.note.fragment.ViewFragment"
         android:label="@string/bottom_view"
         tools:layout="@layout/fragment_view" />
+
     <fragment
-        android:id="@+id/navigation_notifications"
+        android:id="@+id/navigation_mine"
         android:name="com.nlk.note.fragment.MineFragment"
         android:label="@string/bottom_mine"
-        tools:layout="@layout/fragment_mine" />
+        tools:layout="@layout/fragment_mine" >
+        <action
+            android:id="@+id/action_MineFragment_to_ChangeThemeFragment"
+            app:destination="@id/changeThemeFragment"
+            app:enterAnim="@anim/h_fragment_enter"
+            app:exitAnim="@anim/h_fragment_exit"
+            app:popEnterAnim="@anim/h_fragment_pop_enter"
+            app:popExitAnim="@anim/h_fragment_pop_exit" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/changeThemeFragment"
+        android:name="com.nlk.note.fragment.mine.ChangeThemeFragment"
+        android:label="@string/change_theme"
+        tools:layout="@layout/fragment_change_theme" />
 </navigation>

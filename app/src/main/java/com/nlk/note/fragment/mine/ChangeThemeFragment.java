@@ -1,4 +1,4 @@
-package com.nlk.note.fragment;
+package com.nlk.note.fragment.mine;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -7,11 +7,12 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 import com.nlk.baseframe.ui.page.BaseFragment;
 import com.nlk.note.R;
 
-public class ViewFragment extends BaseFragment {
+public class ChangeThemeFragment extends BaseFragment {
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -21,7 +22,7 @@ public class ViewFragment extends BaseFragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_view, container, false);
+        return inflater.inflate(R.layout.fragment_change_theme, container, false);
     }
 
     @Override

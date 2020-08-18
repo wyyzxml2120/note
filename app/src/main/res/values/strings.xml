@@ -4,4 +4,11 @@
     <string name="bottom_matter">事项</string>
     <string name="bottom_view">视图</string>
     <string name="bottom_mine">我的</string>
+    <string name="change_theme">切换主题</string>
+    
+    <string name="theme_title">主题换肤</string>
+    <string name="theme_edit">编辑</string>
+    <string name="theme_wallpaper">墙纸</string>
+    <string name="theme_color">纯色</string>
+
 </resources>

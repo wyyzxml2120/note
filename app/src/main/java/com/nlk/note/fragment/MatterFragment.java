@@ -9,9 +9,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.nlk.baseframe.ui.page.BaseFragment;
 import com.nlk.note.R;
 
-public class MatterFragment extends Fragment {
+public class MatterFragment extends BaseFragment {
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
