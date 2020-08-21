@@ -1,11 +1,13 @@
 package com.nlk.note.fragment;
 
-import androidx.fragment.app.Fragment;
+import androidx.databinding.DataBindingUtil;
+
 import android.os.Bundle;
-import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -13,8 +15,11 @@ import androidx.annotation.Nullable;
 
 import com.nlk.baseframe.ui.page.BaseFragment;
 import com.nlk.note.R;
+import com.nlk.note.databinding.FragmentMineBinding;
 
 public class MineFragment extends BaseFragment {
+
+    private FragmentMineBinding fMineBin;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -24,7 +29,19 @@ public class MineFragment extends BaseFragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-            return inflater.inflate(R.layout.fragment_mine, container, false);
+
+        fMineBin =  DataBindingUtil.inflate(inflater, R.layout.fragment_mine,container,false);
+        fMineBin.tvName.setText("www");
+        fMineBin.setClick(new ClickProxy());
+        return fMineBin.getRoot();
+
+//        viewModel = new TestIDCardViewModel(this,mBinding);
+//        mBinding.setViewModel(viewModel);
+//
+//        View view = mBinding.getRoot();//inflater.inflate(R.layout.test_fragment_idcard, container, false);
+//        EventBusActivityScope.getDefault(_mActivity).register(this);
+//        initView(view);
+
     }
 
     @Override
@@ -36,6 +53,8 @@ public class MineFragment extends BaseFragment {
     public class ClickProxy {
 
         public void changeTheme(){
+            Toast.makeText(getActivity(), "aaaa", Toast.LENGTH_SHORT).show();
+            Log.d("test","test");
             nav().navigate(R.id.action_MineFragment_to_ChangeThemeFragment);
         }
     }

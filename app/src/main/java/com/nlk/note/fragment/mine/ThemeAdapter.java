@@ -4,49 +4,76 @@ import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.ImageView;
 
+import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.nlk.note.R;
+import com.nlk.note.databinding.ItemThemeBinding;
 
 import java.util.List;
 
 public class ThemeAdapter extends RecyclerView.Adapter<ThemeAdapter.ViewHolder> {
 
-    private List<ThemeBean> comList;
+    private List<ThemeBean> themeList;
+
+//    static class ViewHolder extends RecyclerView.ViewHolder {
+//        ImageView imageView;
+//
+//        public ViewHolder(View view) {
+//            super(view);
+//            imageView = (ImageView) view.findViewById(R.id.ivBg);
+//        }
+//    }
+
 
     static class ViewHolder extends RecyclerView.ViewHolder {
-        TextView key;
-        TextView value;
+        private ItemThemeBinding mBinding;
 
-        public ViewHolder(View view) {
-            super(view);
-//            key = (TextView) view.findViewById(R.id.comparison_subjectkey);
-//            value = (TextView) view.findViewById(R.id.comparison_subjectvalue);
+        static ViewHolder create(LayoutInflater inflater, ViewGroup parent) {
+            ItemThemeBinding binding = ItemThemeBinding.inflate(inflater, parent, false);
+            return new ViewHolder(binding);
         }
+
+        private ViewHolder(ItemThemeBinding binding) {
+            super(binding.getRoot());
+            this.mBinding = binding;
+        }
+
+        public void bindTo(ThemeBean theme) {
+            mBinding.setTheme(theme);
+            mBinding.executePendingBindings();
+        }
+
     }
 
+
     public ThemeAdapter(List<ThemeBean> list) {
-        comList = list;
+        themeList = list;
     }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_theme, parent, false);
-        return new ViewHolder(view);
+//        LayoutInflater inflater = LayoutInflater.from(context);
+//        ItemThemeBinding binding = DataBindingUtil.inflate(inflater, R.layout.item_theme, parent, false);
+//        return new ViewHolder(binding.getRoot());
+
+        return ViewHolder.create(LayoutInflater.from(parent.getContext()), parent);
+//        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_theme, parent, false);
+//        return new ViewHolder(view);
     }
 
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
 
-        ThemeBean data = comList.get(position);
+        holder.bindTo(themeList.get(position));
 
     }
 
     @Override
     public int getItemCount() {
-        return comList.size();
+        return themeList == null ? 0 :themeList.size();
     }
 }
