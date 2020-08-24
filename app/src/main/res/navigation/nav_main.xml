@@ -7,19 +7,19 @@
 
     <fragment
         android:id="@+id/navigation_matter"
-        android:name="com.nlk.note.fragment.MatterFragment"
+        android:name="com.nlk.note.ui.page.MatterFragment"
         android:label="@string/bottom_matter"
         tools:layout="@layout/fragment_matter" />
 
     <fragment
         android:id="@+id/navigation_view"
-        android:name="com.nlk.note.fragment.ViewFragment"
+        android:name="com.nlk.note.ui.page.ViewFragment"
         android:label="@string/bottom_view"
         tools:layout="@layout/fragment_view" />
 
     <fragment
         android:id="@+id/navigation_mine"
-        android:name="com.nlk.note.fragment.MineFragment"
+        android:name="com.nlk.note.ui.page.MineFragment"
         android:label="@string/bottom_mine"
         tools:layout="@layout/fragment_mine" >
         <action
@@ -33,7 +33,7 @@
 
     <fragment
         android:id="@+id/changeThemeFragment"
-        android:name="com.nlk.note.fragment.mine.ChangeThemeFragment"
+        android:name="com.nlk.note.ui.page.ChangeThemeFragment"
         android:label="@string/change_theme"
         tools:layout="@layout/fragment_change_theme" />
 </navigation>

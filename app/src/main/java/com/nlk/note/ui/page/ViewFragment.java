@@ -1,4 +1,4 @@
-package com.nlk.note.fragment;
+package com.nlk.note.ui.page;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

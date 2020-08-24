@@ -1,4 +1,4 @@
-package com.nlk.note.fragment;
+package com.nlk.note.ui.page;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 
 import com.nlk.baseframe.ui.page.BaseFragment;
 import com.nlk.note.R;

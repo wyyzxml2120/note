@@ -1,16 +1,13 @@
-package com.nlk.note.fragment.mine;
+package com.nlk.note.ui.page.adapter;
 
-import android.graphics.Color;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 
-import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.nlk.note.R;
+import com.nlk.note.data.bean.ThemeBean;
 import com.nlk.note.databinding.ItemThemeBinding;
+
 
 import java.util.List;
 

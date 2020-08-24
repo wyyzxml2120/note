@@ -1,10 +1,9 @@
-package com.nlk.note.fragment.mine;
-
-import android.graphics.Color;
+package com.nlk.note.data.bean;
 
 public class ThemeBean {
     private int path;
     private int type;
+    private String tip;
 
 
     public int getType() {
@@ -22,5 +21,13 @@ public class ThemeBean {
 
     public void setPath(int path) {
         this.path = path;
+    }
+
+    public String getTip() {
+        return tip;
+    }
+
+    public void setTip(String tip) {
+        this.tip = tip;
     }
 }

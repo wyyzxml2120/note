@@ -7,7 +7,7 @@
 
         <variable
             name="click"
-            type="com.nlk.note.fragment.MineFragment.ClickProxy" />
+            type="com.nlk.note.ui.page.MineFragment.ClickProxy" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"

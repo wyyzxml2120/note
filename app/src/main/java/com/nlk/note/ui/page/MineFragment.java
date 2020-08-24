@@ -1,17 +1,13 @@
-package com.nlk.note.fragment;
-
-import androidx.databinding.DataBindingUtil;
+package com.nlk.note.ui.page;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-
+import androidx.databinding.DataBindingUtil;
 
 import com.nlk.baseframe.ui.page.BaseFragment;
 import com.nlk.note.R;
@@ -53,8 +49,6 @@ public class MineFragment extends BaseFragment {
     public class ClickProxy {
 
         public void changeTheme(){
-            Toast.makeText(getActivity(), "aaaa", Toast.LENGTH_SHORT).show();
-            Log.d("test","test");
             nav().navigate(R.id.action_MineFragment_to_ChangeThemeFragment);
         }
     }
