@@ -4,7 +4,6 @@ import android.app.Application;
 
 import androidx.lifecycle.LiveData;
 
-import com.nlk.note.data.bean.ThemeBean;
 import com.nlk.note.db.DBHelper;
 import com.nlk.note.db.ThemeCode;
 import com.nlk.note.db.ThemeDao;
@@ -14,7 +13,7 @@ import java.util.List;
 
 public class NoteRepository {
     private ThemeDao themeDao;
-    private LiveData<List<ThemeBean>> themes;
+    private LiveData<List<ThemeCode>> themes;
 
     public NoteRepository(Application application) {
         DBHelper dbTheme = DBHelper.getDatabase(application);
@@ -22,7 +21,9 @@ public class NoteRepository {
         themes = themeDao.getThemes();
     }
 
-    public LiveData<List<ThemeBean>> getThemes(){ return themes; }
+    public LiveData<List<ThemeCode>> getThemes(){
+        return themes;
+    }
 
     public void insertTheme(ThemeCode...theme) {themeDao.insert(theme); }
 }

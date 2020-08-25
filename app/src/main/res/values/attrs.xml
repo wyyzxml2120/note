@@ -3,4 +3,9 @@
     <declare-styleable name="ReConstraintLayout">
         <attr name="elk" format="integer"/>
     </declare-styleable>
+
+    <declare-styleable name="CircleImageView">
+        <attr name="radius" format="dimension"/>
+    </declare-styleable>
+
 </resources>

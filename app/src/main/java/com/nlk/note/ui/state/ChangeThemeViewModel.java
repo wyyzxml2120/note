@@ -8,13 +8,12 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.nlk.note.data.NoteRepository;
-import com.nlk.note.data.bean.ThemeBean;
 import com.nlk.note.db.ThemeCode;
 
 import java.util.List;
 
 public class ChangeThemeViewModel extends AndroidViewModel {
-    private LiveData<List<ThemeBean>> themes;
+    private LiveData<List<ThemeCode>> themes;
     private NoteRepository noteRepository;
 
     public ChangeThemeViewModel(@NonNull Application application) {
@@ -23,7 +22,7 @@ public class ChangeThemeViewModel extends AndroidViewModel {
         themes = noteRepository.getThemes();
     }
 
-    public LiveData<List<ThemeBean>> getThemes() {
+    public LiveData<List<ThemeCode>> getThemes() {
         return themes;
     }
 

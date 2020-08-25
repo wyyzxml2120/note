@@ -5,15 +5,15 @@ import android.view.ViewGroup;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.nlk.note.data.bean.ThemeBean;
 import com.nlk.note.databinding.ItemThemeBinding;
+import com.nlk.note.db.ThemeCode;
 
 
 import java.util.List;
 
 public class ThemeAdapter extends RecyclerView.Adapter<ThemeAdapter.ViewHolder> {
 
-    private List<ThemeBean> themeList;
+    private List<ThemeCode> themeList;
 
 //    static class ViewHolder extends RecyclerView.ViewHolder {
 //        ImageView imageView;
@@ -38,7 +38,7 @@ public class ThemeAdapter extends RecyclerView.Adapter<ThemeAdapter.ViewHolder> 
             this.mBinding = binding;
         }
 
-        public void bindTo(ThemeBean theme) {
+        public void bindTo(ThemeCode theme) {
             mBinding.setTheme(theme);
             mBinding.executePendingBindings();
         }
@@ -46,7 +46,7 @@ public class ThemeAdapter extends RecyclerView.Adapter<ThemeAdapter.ViewHolder> 
     }
 
 
-    public ThemeAdapter(List<ThemeBean> list) {
+    public ThemeAdapter(List<ThemeCode> list) {
         themeList = list;
     }
 

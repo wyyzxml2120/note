@@ -27,7 +27,6 @@ public class MineFragment extends BaseFragment {
                              @Nullable Bundle savedInstanceState) {
 
         fMineBin =  DataBindingUtil.inflate(inflater, R.layout.fragment_mine,container,false);
-        fMineBin.tvName.setText("www");
         fMineBin.setClick(new ClickProxy());
         return fMineBin.getRoot();
 
