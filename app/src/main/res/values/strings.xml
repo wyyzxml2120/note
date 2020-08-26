@@ -11,4 +11,13 @@
     <string name="theme_wallpaper">墙纸</string>
     <string name="theme_color">纯色</string>
 
+    <string name="mine_add">事项定制</string>
+    <string name="mine_data">数据安全</string>
+    <string name="mine_theme">主题换肤</string>
+    <string name="mine_message">每日沸点</string>
+    <string name="mine_advise">意见反馈</string>
+    <string name="mine_share">邀请好友</string>
+    <string name="mine_setting">我的设置</string>
+
+
 </resources>
