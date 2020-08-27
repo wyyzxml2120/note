@@ -30,13 +30,6 @@ public class MineFragment extends BaseFragment {
         fMineBin.setClick(new ClickProxy());
         return fMineBin.getRoot();
 
-//        viewModel = new TestIDCardViewModel(this,mBinding);
-//        mBinding.setViewModel(viewModel);
-//
-//        View view = mBinding.getRoot();//inflater.inflate(R.layout.test_fragment_idcard, container, false);
-//        EventBusActivityScope.getDefault(_mActivity).register(this);
-//        initView(view);
-
     }
 
     @Override

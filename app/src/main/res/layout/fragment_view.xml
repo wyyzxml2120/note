@@ -1,8 +1,248 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="#cccccc">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <data>
+        <variable
+            name="click"
+            type="com.nlk.note.ui.page.ViewFragment.ClickProxy" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:circle="http://schemas.android.com/apk/res/com.nlk.note"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#2FA2FD">
+
+        <TextView
+            android:id="@+id/tvDay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/view_day"
+            android:textSize="20sp"
+            android:textColor="#92FFFFFF"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+        
+        <TextView
+            android:layout_width="2dp"
+            android:layout_height="14dp"
+            android:background="#92FFFFFF"
+            android:layout_marginStart="20dp"
+            app:layout_constraintTop_toTopOf="@id/tvDay"
+            app:layout_constraintBottom_toBottomOf="@id/tvDay"
+            app:layout_constraintStart_toEndOf="@id/tvDay"/>
+
+        <TextView
+            android:id="@+id/tvWeek"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#92FFFFFF"
+            android:layout_marginStart="42dp"
+            android:text="@string/view_week"
+            android:textSize="20sp"
+            app:layout_constraintTop_toTopOf="@id/tvDay"
+            app:layout_constraintBottom_toBottomOf="@id/tvDay"
+            app:layout_constraintStart_toEndOf="@id/tvDay"/>
+
+        <TextView
+            android:layout_width="2dp"
+            android:layout_height="14dp"
+            android:background="#92FFFFFF"
+            android:layout_marginStart="20dp"
+            app:layout_constraintTop_toTopOf="@id/tvWeek"
+            app:layout_constraintBottom_toBottomOf="@id/tvWeek"
+            app:layout_constraintStart_toEndOf="@id/tvWeek"/>
+
+        <TextView
+            android:id="@+id/tvMonth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#92FFFFFF"
+            android:layout_marginStart="104dp"
+            android:text="@string/view_month"
+            android:textSize="20sp"
+            app:layout_constraintTop_toTopOf="@id/tvDay"
+            app:layout_constraintBottom_toBottomOf="@id/tvDay"
+            app:layout_constraintStart_toEndOf="@id/tvDay"/>
+
+        <TextView
+            android:layout_width="2dp"
+            android:layout_height="14dp"
+            android:background="#92FFFFFF"
+            android:layout_marginStart="20dp"
+            app:layout_constraintTop_toTopOf="@id/tvMonth"
+            app:layout_constraintBottom_toBottomOf="@id/tvMonth"
+            app:layout_constraintStart_toEndOf="@id/tvMonth"/>
+
+        <TextView
+            android:id="@+id/tvTab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#FFFFFF"
+            android:layout_marginStart="166dp"
+            android:text="@string/view_tab"
+            android:textSize="24sp"
+            app:layout_constraintTop_toTopOf="@id/tvDay"
+            app:layout_constraintBottom_toBottomOf="@id/tvDay"
+            app:layout_constraintStart_toEndOf="@id/tvDay"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/view_hello"
+            android:textColor="#92FFFFFF"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="@id/tvDay"
+            app:layout_constraintTop_toBottomOf="@id/tvDay"/>
+
+        <TextView
+            android:id="@+id/view1"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/mine_bg_view1"
+            app:layout_constraintTop_toBottomOf="@id/tvDay"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+
+        <TextView
+            android:id="@+id/tvTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="MIN 555.25"
+            android:textColor="#2FA2FD"
+            android:textStyle="bold"
+            android:textSize="25sp"
+            android:layout_marginTop="40dp"
+            app:layout_constraintStart_toStartOf="@id/view1"
+            app:layout_constraintEnd_toEndOf="@id/view1"
+            app:layout_constraintTop_toTopOf="@id/view1"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/view_state1"
+            android:textColor="#82999999"
+            app:layout_constraintBottom_toTopOf="@id/tvTime"
+            app:layout_constraintStart_toStartOf="@id/view1"
+            app:layout_constraintEnd_toEndOf="@id/view1"/>
+
+        <TextView
+            android:id="@+id/tvCompare1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="↑1.33%"
+            app:layout_constraintTop_toBottomOf="@id/tvTime"
+            app:layout_constraintStart_toStartOf="@id/view1"
+            app:layout_constraintEnd_toStartOf="@id/tvCompare2"/>
+
+        <TextView
+            android:id="@+id/tvCompare2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+min 5.0"
+            app:layout_constraintTop_toTopOf="@id/tvCompare1"
+            app:layout_constraintStart_toEndOf="@id/tvCompare1"
+            app:layout_constraintEnd_toEndOf="@id/view1"/>
+
+        <com.github.mikephil.charting.charts.PieChart
+            android:id="@+id/picChart"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:layout_marginStart="10dp"
+            app:layout_constraintTop_toBottomOf="@id/view1"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+
+        <ImageView
+            android:id="@+id/ivModel1"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="#419991"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="20dp"
+            app:layout_constraintStart_toEndOf="@id/picChart"
+            app:layout_constraintTop_toTopOf="@id/picChart"
+            tools:ignore="ContentDescription"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/view_model1"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:layout_marginStart="20dp"
+            app:layout_constraintStart_toEndOf="@id/ivModel1"
+            app:layout_constraintTop_toTopOf="@id/ivModel1"
+            app:layout_constraintBottom_toBottomOf="@id/ivModel1"/>
+
+
+        <ImageView
+            android:id="@+id/ivModel2"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="#3FBFFE"
+            app:layout_constraintStart_toStartOf="@id/ivModel1"
+            app:layout_constraintTop_toBottomOf="@id/ivModel1"
+            app:layout_constraintBottom_toTopOf="@id/ivModel3"
+            tools:ignore="ContentDescription"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/view_model2"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:layout_marginStart="20dp"
+            app:layout_constraintStart_toEndOf="@id/ivModel2"
+            app:layout_constraintTop_toTopOf="@id/ivModel2"
+            app:layout_constraintBottom_toBottomOf="@id/ivModel2"/>
+
+        <ImageView
+            android:id="@+id/ivModel3"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="#EF6C00"
+            app:layout_constraintStart_toStartOf="@id/ivModel1"
+            app:layout_constraintTop_toBottomOf="@id/ivModel2"
+            app:layout_constraintBottom_toTopOf="@id/ivModel4"
+            tools:ignore="ContentDescription"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/view_model3"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:layout_marginStart="20dp"
+            app:layout_constraintStart_toEndOf="@id/ivModel3"
+            app:layout_constraintTop_toTopOf="@id/ivModel3"
+            app:layout_constraintBottom_toBottomOf="@id/ivModel3"/>
+
+        <ImageView
+            android:id="@+id/ivModel4"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="#FFE793"
+            app:layout_constraintStart_toStartOf="@id/ivModel1"
+            app:layout_constraintTop_toBottomOf="@id/ivModel3"
+            app:layout_constraintBottom_toBottomOf="@id/picChart"
+            tools:ignore="ContentDescription"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/view_model4"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:layout_marginStart="20dp"
+            app:layout_constraintStart_toEndOf="@id/ivModel4"
+            app:layout_constraintTop_toTopOf="@id/ivModel4"
+            app:layout_constraintBottom_toBottomOf="@id/ivModel4"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

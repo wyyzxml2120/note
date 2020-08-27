@@ -19,5 +19,15 @@
     <string name="mine_share">邀请好友</string>
     <string name="mine_setting">我的设置</string>
 
-
+    <string name="view_day">日</string>
+    <string name="view_week">周</string>
+    <string name="view_month">月</string>
+    <string name="view_tab">切换功能</string>
+    <string name="view_state1">congratulation</string>
+    <string name="view_state2">unaccomplished</string>
+    <string name="view_hello">早上好，我有一只小毛驴…</string>
+    <string name="view_model1">生活</string>
+    <string name="view_model2">学习</string>
+    <string name="view_model3">工作</string>
+    <string name="view_model4">娱乐</string>
 </resources>

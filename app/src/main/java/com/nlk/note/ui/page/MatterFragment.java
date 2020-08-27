@@ -7,11 +7,16 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.databinding.DataBindingUtil;
 
 import com.nlk.baseframe.ui.page.BaseFragment;
 import com.nlk.note.R;
+import com.nlk.note.databinding.FragmentMatterBinding;
+import com.nlk.note.databinding.FragmentViewBinding;
 
 public class MatterFragment extends BaseFragment {
+
+    private FragmentMatterBinding fMatterBin;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -21,7 +26,9 @@ public class MatterFragment extends BaseFragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_matter, container, false);
+        fMatterBin =  DataBindingUtil.inflate(inflater, R.layout.fragment_matter,container,false);
+        fMatterBin.setClick(new MatterFragment.ClickProxy());
+        return fMatterBin.getRoot();
     }
 
     @Override
