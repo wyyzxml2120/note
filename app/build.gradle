@@ -43,6 +43,8 @@ dependencies {
     implementation 'com.google.android.material:material:1.2.0'
 
     implementation project(':baseframe')
+    implementation project(':jyweather')
+
     compileOnly 'androidx.lifecycle:lifecycle-runtime:2.2.0'
     compileOnly 'androidx.lifecycle:lifecycle-common-java8:2.2.0'
     compileOnly 'androidx.lifecycle:lifecycle-extensions:2.2.0'
