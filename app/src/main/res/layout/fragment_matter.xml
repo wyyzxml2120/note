@@ -15,12 +15,28 @@
         android:layout_height="match_parent"
         android:background="#2FA2FD">
 
-        <Button
+        <TextView
+            android:id="@+id/tvLocation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="获取天气"
+            android:layout_marginTop="10dp"
+            android:text="成都市双流区"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:onClick="@{() -> click.test()}"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            android:id="@+id/tvWeather"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="阴-南风"
+            android:textColor="#FFFFFF"
+            android:layout_marginStart="20dp"
+            android:textSize="18sp"
+            app:layout_constraintStart_toEndOf="@id/tvLocation"
+            app:layout_constraintTop_toTopOf="@id/tvLocation"/>
 
 
 
