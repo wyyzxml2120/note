@@ -13,10 +13,10 @@ public class WorkCode {
     private int typeclassa;//本事务的大分类 吃 行 学
     private int typeclassb;//本事务的小分类 学中的 学股票 学编程
     private String work;//具体要做的事务
-    private Time time;//当前日期
+    private long time;//当前时间戳
     private boolean iscomplate;//是否完成
 
-    public WorkCode(int typeclassa,int typeclassb,String work,Time time,boolean iscomplate) {
+    public WorkCode(int typeclassa,int typeclassb,String work,long time,boolean iscomplate) {
         this.typeclassa = typeclassa;
         this.typeclassb = typeclassb;
         this.work = work;
@@ -56,11 +56,11 @@ public class WorkCode {
         this.work = work;
     }
 
-    public Time getTime() {
+    public long getTime() {
         return time;
     }
 
-    public void setTime(Time time) {
+    public void setTime(long time) {
         this.time = time;
     }
 
