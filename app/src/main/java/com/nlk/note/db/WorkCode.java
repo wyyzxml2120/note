@@ -10,17 +10,19 @@ import java.sql.Time;
 public class WorkCode {
     @PrimaryKey(autoGenerate = true)
     private int id;//自增id
-    private int typeclassa;//本事务的大分类 吃 行 学
-    private int typeclassb;//本事务的小分类 学中的 学股票 学编程
+    private int typeclassa;//本事务的大分类 1娱乐 2学习 3生活 4运动 5工作
+    private int typeclassb;//本事务的分类对应的图标
     private String work;//具体要做的事务
     private long time;//当前时间戳
+    private long timecomplete;//完成时的时间戳
     private boolean iscomplate;//是否完成
 
-    public WorkCode(int typeclassa,int typeclassb,String work,long time,boolean iscomplate) {
+    public WorkCode(int typeclassa,int typeclassb,String work,long time,long timecomplete,boolean iscomplate) {
         this.typeclassa = typeclassa;
         this.typeclassb = typeclassb;
         this.work = work;
         this.time = time;
+        this.timecomplete = timecomplete;
         this.iscomplate = iscomplate;
     }
 
@@ -70,5 +72,13 @@ public class WorkCode {
 
     public void setIscomplate(boolean iscomplate) {
         this.iscomplate = iscomplate;
+    }
+
+    public long getTimecomplete() {
+        return timecomplete;
+    }
+
+    public void setTimecomplete(long timecomplete) {
+        this.timecomplete = timecomplete;
     }
 }

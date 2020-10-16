@@ -1,11 +1,11 @@
 <resources>
     <string name="app_name">note</string>
-    
+
     <string name="bottom_matter">事项</string>
     <string name="bottom_view">视图</string>
     <string name="bottom_mine">我的</string>
     <string name="change_theme">切换主题</string>
-    
+
     <string name="theme_title">主题换肤</string>
     <string name="theme_edit">编辑</string>
     <string name="theme_wallpaper">墙纸</string>
@@ -30,4 +30,8 @@
     <string name="view_model2">学习</string>
     <string name="view_model3">工作</string>
     <string name="view_model4">娱乐</string>
+
+    <string name="matter_complete">已完成</string>
+    <string name="matter_nocomplete">未完成</string>
+    <string name="matter_send">请输入待完成事项</string>
 </resources>

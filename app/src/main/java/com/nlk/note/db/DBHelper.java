@@ -12,7 +12,7 @@ import androidx.room.migration.Migration;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 import androidx.sqlite.db.SupportSQLiteOpenHelper;
 
-@Database(entities = {ThemeCode.class}, version = 1, exportSchema = false)
+@Database(entities = {ThemeCode.class,WorkCode.class}, version = 1, exportSchema = false)
 public abstract class DBHelper extends RoomDatabase {
     private static volatile DBHelper INSTANCE;
 
@@ -49,6 +49,8 @@ public abstract class DBHelper extends RoomDatabase {
     }
 
     public abstract ThemeDao ThemeDao();
+
+    public abstract WorkDao WorkDao();
 
 
     //迁移补丁

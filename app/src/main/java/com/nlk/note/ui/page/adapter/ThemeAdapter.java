@@ -9,6 +9,8 @@ import com.nlk.note.databinding.ItemThemeBinding;
 import com.nlk.note.db.ThemeCode;
 
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.List;
 
 public class ThemeAdapter extends RecyclerView.Adapter<ThemeAdapter.ViewHolder> {
@@ -50,8 +52,9 @@ public class ThemeAdapter extends RecyclerView.Adapter<ThemeAdapter.ViewHolder> 
         themeList = list;
     }
 
+    @NotNull
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(@NotNull ViewGroup parent, int viewType) {
 //        LayoutInflater inflater = LayoutInflater.from(context);
 //        ItemThemeBinding binding = DataBindingUtil.inflate(inflater, R.layout.item_theme, parent, false);
 //        return new ViewHolder(binding.getRoot());
