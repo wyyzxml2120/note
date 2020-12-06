@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="click"
+            type="com.nlk.note.ui.page.MatterFragment.ClickProxy" />
+
+        <variable
+            name="view"
+            type="com.nlk.note.ui.state.MatterViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FBFBFB"
+        tools:context=".ui.model.addtask.AddActivity">
+
+        <TextView
+            android:id="@+id/tabBar"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="#00BEFC"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <ImageView
+            android:id="@+id/ivBack"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="10dp"
+            android:src="@drawable/ic_fanhui"
+            app:layout_constraintStart_toStartOf="@id/tabBar"
+            app:layout_constraintTop_toTopOf="@id/tabBar"
+            app:layout_constraintBottom_toBottomOf="@id/tabBar"/>
+
+        <TextView
+            android:id="@+id/tvSchedule"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="#666666"
+            android:layout_marginStart="60dp"
+            android:text="@string/add_schedule"
+            app:layout_constraintTop_toTopOf="@id/tabBar"
+            app:layout_constraintBottom_toBottomOf="@id/tabBar"
+            app:layout_constraintStart_toStartOf="@id/tabBar"
+            app:layout_constraintEnd_toStartOf="@id/tvIdea"/>
+
+        <TextView
+            android:id="@+id/tvIdea"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="#666666"
+            android:text="@string/add_idea"
+            app:layout_constraintTop_toTopOf="@id/tabBar"
+            app:layout_constraintBottom_toBottomOf="@id/tabBar"
+            app:layout_constraintStart_toEndOf="@id/tvSchedule"
+            app:layout_constraintEnd_toStartOf="@id/tvSkill"/>
+
+        <TextView
+            android:id="@+id/tvSkill"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            android:layout_marginEnd="60dp"
+            android:text="@string/add_skill"
+            app:layout_constraintTop_toTopOf="@id/tabBar"
+            app:layout_constraintBottom_toBottomOf="@id/tabBar"
+            app:layout_constraintStart_toEndOf="@id/tvIdea"
+            app:layout_constraintEnd_toEndOf="@id/tabBar"/>
+
+        <ImageView
+            android:id="@+id/ivComplete"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginEnd="10dp"
+            android:src="@drawable/ic_zhengque"
+            app:layout_constraintEnd_toEndOf="@id/tabBar"
+            app:layout_constraintTop_toTopOf="@id/tabBar"
+            app:layout_constraintBottom_toBottomOf="@id/tabBar"/>
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/groupSchedule"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:constraint_referenced_ids="tvDay1,tvDay2,tvDay3,tvDay4,edtSchedule" />
+
+        <TextView
+            android:id="@+id/tvDay1"
+            android:layout_width="50dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/add_day_border2"
+            android:textColor="#00BEFC"
+            android:gravity="center"
+            android:text="@string/add_day1"
+            app:layout_constraintTop_toBottomOf="@id/tabBar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/tvDay2"/>
+
+        <TextView
+            android:id="@+id/tvDay2"
+            android:layout_width="50dp"
+            android:layout_height="30dp"
+            android:background="@drawable/add_day_border1"
+            android:textColor="#BDBDBF"
+            android:gravity="center"
+            android:text="@string/add_day2"
+            app:layout_constraintTop_toTopOf="@id/tvDay1"
+            app:layout_constraintStart_toEndOf="@id/tvDay1"
+            app:layout_constraintEnd_toStartOf="@id/tvDay3"/>
+
+        <TextView
+            android:id="@+id/tvDay3"
+            android:layout_width="50dp"
+            android:layout_height="30dp"
+            android:background="@drawable/add_day_border1"
+            android:textColor="#BDBDBF"
+            android:gravity="center"
+            android:text="@string/add_day3"
+            app:layout_constraintTop_toTopOf="@id/tvDay1"
+            app:layout_constraintStart_toEndOf="@id/tvDay2"
+            app:layout_constraintEnd_toStartOf="@id/tvDay4"/>
+
+        <TextView
+            android:id="@+id/tvDay4"
+            android:layout_width="75dp"
+            android:layout_height="30dp"
+            android:background="@drawable/add_day_border1"
+            android:textColor="#BDBDBF"
+            android:gravity="center"
+            android:layout_marginEnd="10dp"
+            android:text="@string/add_day4"
+            app:layout_constraintTop_toTopOf="@id/tvDay1"
+            app:layout_constraintStart_toEndOf="@id/tvDay3"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <EditText
+            android:id="@+id/edtSchedule"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:autofillHints="@string/add_tips1"
+            android:hint="@string/add_tips1"
+            android:inputType="text"
+            android:background="@drawable/empty_bg"
+            android:gravity="start"
+            android:padding="20dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvDay1"/>
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/groupIdea"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:constraint_referenced_ids="edtIdea" />
+
+        <EditText
+            android:id="@+id/edtIdea"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:autofillHints="@string/add_tips2"
+            android:hint="@string/add_tips2"
+            android:inputType="text"
+            android:background="@drawable/empty_bg"
+            android:gravity="start"
+            android:padding="20dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tabBar"/>
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/groupSkill"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            app:constraint_referenced_ids="edtSkillTitle" />
+
+        <EditText
+            android:id="@+id/edtSkillTitle"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:autofillHints="@string/add_tips3"
+            android:hint="@string/add_tips3"
+            android:inputType="text"
+            android:background="@drawable/empty_bg"
+            android:gravity="start"
+            android:paddingStart="20dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tabBar"/>
+
+        <TextView
+            android:id="@+id/tvTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2020-12-06 22:34"
+            android:layout_marginStart="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/edtSkillTitle"/>
+
+        <EditText
+            android:id="@+id/edtSkillContent"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:autofillHints="@string/add_tips4"
+            android:hint="@string/add_tips4"
+            android:inputType="text"
+            android:background="@drawable/empty_bg"
+            android:gravity="start"
+            android:paddingStart="20dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvTime"/>
+
+        <TextView
+            android:id="@+id/bottom"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:background="#ffffff"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <TextView
+            android:id="@+id/btnCancel"
+            android:layout_width="120dp"
+            android:layout_height="35dp"
+            android:gravity="center"
+            android:background="@drawable/add_bottom1"
+            android:text="@string/add_cancel"
+            android:textColor="#a1a1a1"
+            app:layout_constraintTop_toTopOf="@id/bottom"
+            app:layout_constraintBottom_toBottomOf="@id/bottom"
+            app:layout_constraintStart_toStartOf="@id/bottom"
+            app:layout_constraintEnd_toStartOf="@id/btnSubmit"/>
+
+        <TextView
+            android:id="@+id/btnSubmit"
+            android:layout_width="120dp"
+            android:layout_height="35dp"
+            android:gravity="center"
+            android:background="@drawable/add_bottom2"
+            android:text="@string/add_submit"
+            android:textColor="#ffffff"
+            app:layout_constraintTop_toTopOf="@id/bottom"
+            app:layout_constraintBottom_toBottomOf="@id/bottom"
+            app:layout_constraintStart_toEndOf="@id/btnCancel"
+            app:layout_constraintEnd_toEndOf="@id/bottom"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

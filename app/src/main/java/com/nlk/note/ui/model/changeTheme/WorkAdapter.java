@@ -1,13 +1,11 @@
-package com.nlk.note.ui.page.adapter;
+package com.nlk.note.ui.model.changeTheme;
 
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.nlk.note.databinding.ItemThemeBinding;
 import com.nlk.note.databinding.ItemWorkBinding;
-import com.nlk.note.db.ThemeCode;
 import com.nlk.note.db.WorkCode;
 
 import org.jetbrains.annotations.NotNull;

@@ -1,14 +1,16 @@
-package com.nlk.note;
+package com.nlk.note.ui.model.addtask;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class TestActivity2 extends AppCompatActivity {
+import com.nlk.note.R;
+
+public class AddActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_test2);
+        setContentView(R.layout.activity_add);
     }
 }

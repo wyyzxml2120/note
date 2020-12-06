@@ -1,23 +1,22 @@
-package com.nlk.note.ui.state;
+package com.nlk.note.ui.model.changeTheme;
 
 import android.app.Application;
 
 import androidx.annotation.NonNull;
-import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.ViewModel;
 
+import com.nlk.baseframe.ui.page.BaseViewModel;
 import com.nlk.note.data.NoteRepository;
 import com.nlk.note.db.ThemeCode;
 
 import java.util.List;
 
-public class ChangeThemeViewModel extends AndroidViewModel {
+public class ChangeThemeViewModel extends BaseViewModel {
     private LiveData<List<ThemeCode>> themes;
     private NoteRepository noteRepository;
 
     public ChangeThemeViewModel(@NonNull Application application) {
-        super(application);
+        //super(application);
         noteRepository = new NoteRepository(application);
         themes = noteRepository.getThemes();
     }

@@ -9,8 +9,8 @@
         <import type="android.view.View" />
 
         <variable
-            name="matterview"
-            type="com.nlk.note.ui.state.MatterViewModel" />
+            name="view"
+            type="com.nlk.note.ui.state.MainViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -22,10 +22,10 @@
             android:id="@+id/nav_bottom"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:background="#FFFFFF"
-            android:visibility="gone"
+            android:background="#FBFBFB"
+            android:visibility="@{view.isShowBottom?View.VISIBLE:View.GONE}"
             app:itemIconTint="@color/bottom_tab"
-            app:itemTextColor="@color/bottom_tab"
+            app:itemTextColor="@color/bottom_text_tab"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

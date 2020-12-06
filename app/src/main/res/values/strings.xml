@@ -5,6 +5,7 @@
     <string name="bottom_view">视图</string>
     <string name="bottom_mine">我的</string>
     <string name="change_theme">切换主题</string>
+    <string name="add_task">添加任务</string>
 
     <string name="theme_title">主题换肤</string>
     <string name="theme_edit">编辑</string>
@@ -34,4 +35,19 @@
     <string name="matter_complete">已完成</string>
     <string name="matter_nocomplete">未完成</string>
     <string name="matter_send">请输入待完成事项</string>
+
+    <string name="add_idea">想法</string>
+    <string name="add_schedule">日程</string>
+    <string name="add_skill">技艺</string>
+    <string name="add_day1">今日</string>
+    <string name="add_day2">明日</string>
+    <string name="add_day3">后日</string>
+    <string name="add_day4">无期限</string>
+    <string name="add_tips1">准备做什么…</string>
+    <string name="add_tips2">记录一个灵感…</string>
+    <string name="add_tips3">开始一项技艺(标题)…</string>
+    <string name="add_tips4">技艺具体内容…</string>
+    <string name="add_cancel">取消</string>
+    <string name="add_submit">保存</string>
+
 </resources>

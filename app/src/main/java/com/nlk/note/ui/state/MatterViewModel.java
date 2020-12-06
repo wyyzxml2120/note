@@ -10,6 +10,7 @@ import androidx.databinding.ObservableInt;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
+import com.nlk.baseframe.ui.page.BaseViewModel;
 import com.nlk.note.BuildConfig;
 import com.nlk.note.data.NoteRepository;
 import com.nlk.note.data.bean.ViewMatterBean;
@@ -21,7 +22,7 @@ import androidx.lifecycle.ViewModel;
 
 import java.util.List;
 
-public class MatterViewModel extends ViewModel {
+public class MatterViewModel extends BaseViewModel {
     private LiveData<List<WorkCode>> works;
     private NoteRepository noteRepository;
 
@@ -33,7 +34,7 @@ public class MatterViewModel extends ViewModel {
     public final ObservableInt addType = new ObservableInt();
 
     public MatterViewModel(@NonNull Application application) {
-        //super(application);
+
         noteRepository = new NoteRepository(application);
         works = noteRepository.getWorks();
 

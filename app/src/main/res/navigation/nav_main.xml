@@ -9,7 +9,15 @@
         android:id="@+id/navigation_matter"
         android:name="com.nlk.note.ui.page.MatterFragment"
         android:label="@string/bottom_matter"
-        tools:layout="@layout/fragment_matter" />
+        tools:layout="@layout/fragment_matter">
+        <action
+            android:id="@+id/action_MatterFragment_to_AddActivity"
+            app:destination="@id/a_add_task"
+            app:enterAnim="@anim/h_fragment_enter"
+            app:exitAnim="@anim/h_fragment_exit"
+            app:popEnterAnim="@anim/h_fragment_pop_enter"
+            app:popExitAnim="@anim/h_fragment_pop_exit" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_view"
@@ -23,17 +31,24 @@
         android:label="@string/bottom_mine"
         tools:layout="@layout/fragment_mine" >
         <action
-            android:id="@+id/action_MineFragment_to_ChangeThemeFragment"
-            app:destination="@id/changeThemeFragment"
+            android:id="@+id/action_MineFragment_to_ChangeThemeActivity"
+            app:destination="@id/a_change_theme"
             app:enterAnim="@anim/h_fragment_enter"
             app:exitAnim="@anim/h_fragment_exit"
             app:popEnterAnim="@anim/h_fragment_pop_enter"
             app:popExitAnim="@anim/h_fragment_pop_exit" />
     </fragment>
 
-    <fragment
-        android:id="@+id/changeThemeFragment"
-        android:name="com.nlk.note.ui.page.ChangeThemeFragment"
+    <activity
+        android:id="@+id/a_change_theme"
+        android:name="com.nlk.note.ui.model.changeTheme.ChangeThemeActivity"
         android:label="@string/change_theme"
-        tools:layout="@layout/fragment_change_theme" />
+        tools:layout="@layout/activity_change_theme" />
+
+    <activity
+        android:id="@+id/a_add_task"
+        android:name="com.nlk.note.ui.model.addtask.AddActivity"
+        android:label="@string/add_task"
+        tools:layout="@layout/activity_add"/>
+
 </navigation>

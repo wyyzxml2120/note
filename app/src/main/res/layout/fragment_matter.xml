@@ -13,26 +13,32 @@
             name="view"
             type="com.nlk.note.ui.state.MatterViewModel" />
     </data>
-<RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-    <androidx.constraintlayout.widget.ConstraintLayout
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:circle="http://schemas.android.com/apk/res/com.nlk.note"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#63B5FE">
+        android:background="#FFFFFF">
+
+        <TextView
+            android:id="@+id/tabBar"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="#00BEFC"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
 
         <TextView
             android:id="@+id/tvLocation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
             android:text="9/14 周一"
             android:textColor="#FFFFFF"
             android:textSize="18sp"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tabBar"
+            app:layout_constraintBottom_toBottomOf="@id/tabBar"
             app:layout_constraintStart_toStartOf="parent"/>
 
         <TextView
@@ -45,149 +51,150 @@
             app:layout_constraintStart_toEndOf="@id/tvLocation"
             app:layout_constraintBottom_toBottomOf="@id/tvLocation"/>
 
+        <ImageView
+            android:id="@+id/ivAdd"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/icon_add"
+            android:layout_marginEnd="10dp"
+            android:onClick="@{() -> click.clickAddIcon()}"
+            app:layout_constraintEnd_toEndOf="@id/tabBar"
+            app:layout_constraintBottom_toBottomOf="@id/tabBar"
+            app:layout_constraintTop_toTopOf="@id/tabBar"
+            tools:ignore="ContentDescription"/>
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvWeather"/>
+            app:layout_constraintTop_toBottomOf="@id/tabBar"/>
 
-        <ImageView
-            android:id="@+id/ivAdd"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:src="@drawable/icon_add"
-            android:layout_marginEnd="20dp"
-            android:layout_marginBottom="30dp"
-            android:onClick="@{() -> click.clickAddIcon()}"
-            android:visibility="@{view.addIconShow?View.VISIBLE:View.GONE}"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            tools:ignore="ContentDescription"/>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:layout_alignParentBottom="true"
-        android:orientation="vertical">
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <androidx.constraintlayout.widget.Group
-                android:id="@+id/group1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:visibility="@{view.addColumnShow?View.VISIBLE:View.GONE}"
-                app:constraint_referenced_ids="ivTip,etMatter,ivSend,tvBottom,ivHappy,ivLearn,ivLife,ivSport,ivWork" />
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="80dp"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        android:orientation="vertical">-->
+<!--        <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent">-->
+<!--            <androidx.constraintlayout.widget.Group-->
+<!--                android:id="@+id/group1"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:visibility="@{view.addColumnShow?View.VISIBLE:View.GONE}"-->
+<!--                app:constraint_referenced_ids="ivTip,etMatter,ivSend,tvBottom,ivHappy,ivLearn,ivLife,ivSport,ivWork" />-->
 
-            <ImageView
-                android:id="@+id/ivTip"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="#F0F4F7"
-                android:padding="10dp"
-                android:src="@drawable/action_happy"
-                app:layout_constraintBottom_toTopOf="@id/tvBottom"
-                app:layout_constraintStart_toStartOf="parent"
-                tools:ignore="ContentDescription" />
+<!--            <ImageView-->
+<!--                android:id="@+id/ivTip"-->
+<!--                android:layout_width="50dp"-->
+<!--                android:layout_height="50dp"-->
+<!--                android:background="#F0F4F7"-->
+<!--                android:padding="10dp"-->
+<!--                android:src="@drawable/action_happy"-->
+<!--                app:layout_constraintBottom_toTopOf="@id/tvBottom"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                tools:ignore="ContentDescription" />-->
 
-            <EditText
-                android:id="@+id/etMatter"
-                android:layout_width="0dp"
-                android:layout_height="50dp"
-                android:autofillHints="@string/matter_send"
-                android:background="#F0F4F7"
-                android:hint="@string/matter_send"
-                android:inputType="text"
-                android:text="@={view.addContent}"
-                app:layout_constraintBottom_toTopOf="@id/tvBottom"
-                app:layout_constraintEnd_toStartOf="@id/ivSend"
-                app:layout_constraintStart_toEndOf="@id/ivTip" />
+<!--            <EditText-->
+<!--                android:id="@+id/etMatter"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="50dp"-->
+<!--                android:autofillHints="@string/matter_send"-->
+<!--                android:background="#F0F4F7"-->
+<!--                android:hint="@string/matter_send"-->
+<!--                android:inputType="text"-->
+<!--                android:text="@={view.addContent}"-->
+<!--                app:layout_constraintBottom_toTopOf="@id/tvBottom"-->
+<!--                app:layout_constraintEnd_toStartOf="@id/ivSend"-->
+<!--                app:layout_constraintStart_toEndOf="@id/ivTip" />-->
 
-            <ImageView
-                android:id="@+id/ivSend"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="#F0F4F7"
-                android:onClick="@{() -> click.addData()}"
-                android:padding="10dp"
-                android:src="@drawable/icon_send"
-                app:layout_constraintBottom_toTopOf="@id/tvBottom"
-                app:layout_constraintEnd_toEndOf="parent"
-                tools:ignore="ContentDescription" />
+<!--            <ImageView-->
+<!--                android:id="@+id/ivSend"-->
+<!--                android:layout_width="50dp"-->
+<!--                android:layout_height="50dp"-->
+<!--                android:background="#F0F4F7"-->
+<!--                android:onClick="@{() -> click.addData()}"-->
+<!--                android:padding="10dp"-->
+<!--                android:src="@drawable/icon_send"-->
+<!--                app:layout_constraintBottom_toTopOf="@id/tvBottom"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                tools:ignore="ContentDescription" />-->
 
-            <TextView
-                android:id="@+id/tvBottom"
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:background="#FFFFFF"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+<!--            <TextView-->
+<!--                android:id="@+id/tvBottom"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="30dp"-->
+<!--                android:background="#FFFFFF"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="parent" />-->
 
-            <ImageView
-                android:id="@+id/ivHappy"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_marginStart="20dp"
-                android:onClick="@{() -> click.addType(1)}"
-                android:src="@drawable/action_happy"
-                app:layout_constraintBottom_toBottomOf="@id/tvBottom"
-                app:layout_constraintStart_toStartOf="@id/tvBottom"
-                app:layout_constraintTop_toTopOf="@id/tvBottom"
-                tools:ignore="ContentDescription" />
+<!--            <ImageView-->
+<!--                android:id="@+id/ivHappy"-->
+<!--                android:layout_width="20dp"-->
+<!--                android:layout_height="20dp"-->
+<!--                android:layout_marginStart="20dp"-->
+<!--                android:onClick="@{() -> click.addType(1)}"-->
+<!--                android:src="@drawable/action_happy"-->
+<!--                app:layout_constraintBottom_toBottomOf="@id/tvBottom"-->
+<!--                app:layout_constraintStart_toStartOf="@id/tvBottom"-->
+<!--                app:layout_constraintTop_toTopOf="@id/tvBottom"-->
+<!--                tools:ignore="ContentDescription" />-->
 
-            <ImageView
-                android:id="@+id/ivLearn"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_marginStart="20dp"
-                android:onClick="@{() -> click.addType(2)}"
-                android:src="@drawable/action_learn"
-                app:layout_constraintBottom_toBottomOf="@id/tvBottom"
-                app:layout_constraintStart_toEndOf="@id/ivHappy"
-                app:layout_constraintTop_toTopOf="@id/tvBottom"
-                tools:ignore="ContentDescription" />
+<!--            <ImageView-->
+<!--                android:id="@+id/ivLearn"-->
+<!--                android:layout_width="20dp"-->
+<!--                android:layout_height="20dp"-->
+<!--                android:layout_marginStart="20dp"-->
+<!--                android:onClick="@{() -> click.addType(2)}"-->
+<!--                android:src="@drawable/action_learn"-->
+<!--                app:layout_constraintBottom_toBottomOf="@id/tvBottom"-->
+<!--                app:layout_constraintStart_toEndOf="@id/ivHappy"-->
+<!--                app:layout_constraintTop_toTopOf="@id/tvBottom"-->
+<!--                tools:ignore="ContentDescription" />-->
 
-            <ImageView
-                android:id="@+id/ivLife"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_marginStart="20dp"
-                android:onClick="@{() -> click.addType(3)}"
-                android:src="@drawable/action_life"
-                app:layout_constraintBottom_toBottomOf="@id/tvBottom"
-                app:layout_constraintStart_toEndOf="@id/ivLearn"
-                app:layout_constraintTop_toTopOf="@id/tvBottom"
-                tools:ignore="ContentDescription" />
+<!--            <ImageView-->
+<!--                android:id="@+id/ivLife"-->
+<!--                android:layout_width="20dp"-->
+<!--                android:layout_height="20dp"-->
+<!--                android:layout_marginStart="20dp"-->
+<!--                android:onClick="@{() -> click.addType(3)}"-->
+<!--                android:src="@drawable/action_life"-->
+<!--                app:layout_constraintBottom_toBottomOf="@id/tvBottom"-->
+<!--                app:layout_constraintStart_toEndOf="@id/ivLearn"-->
+<!--                app:layout_constraintTop_toTopOf="@id/tvBottom"-->
+<!--                tools:ignore="ContentDescription" />-->
 
-            <ImageView
-                android:id="@+id/ivSport"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_marginStart="20dp"
-                android:onClick="@{() -> click.addType(4)}"
-                android:src="@drawable/action_sport"
-                app:layout_constraintBottom_toBottomOf="@id/tvBottom"
-                app:layout_constraintStart_toEndOf="@id/ivLife"
-                app:layout_constraintTop_toTopOf="@id/tvBottom"
-                tools:ignore="ContentDescription" />
+<!--            <ImageView-->
+<!--                android:id="@+id/ivSport"-->
+<!--                android:layout_width="20dp"-->
+<!--                android:layout_height="20dp"-->
+<!--                android:layout_marginStart="20dp"-->
+<!--                android:onClick="@{() -> click.addType(4)}"-->
+<!--                android:src="@drawable/action_sport"-->
+<!--                app:layout_constraintBottom_toBottomOf="@id/tvBottom"-->
+<!--                app:layout_constraintStart_toEndOf="@id/ivLife"-->
+<!--                app:layout_constraintTop_toTopOf="@id/tvBottom"-->
+<!--                tools:ignore="ContentDescription" />-->
 
-            <ImageView
-                android:id="@+id/ivWork"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_marginStart="20dp"
-                android:onClick="@{() -> click.addType(5)}"
-                android:src="@drawable/action_work"
-                app:layout_constraintBottom_toBottomOf="@id/tvBottom"
-                app:layout_constraintStart_toEndOf="@id/ivSport"
-                app:layout_constraintTop_toTopOf="@id/tvBottom"
-                tools:ignore="ContentDescription" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+<!--            <ImageView-->
+<!--                android:id="@+id/ivWork"-->
+<!--                android:layout_width="20dp"-->
+<!--                android:layout_height="20dp"-->
+<!--                android:layout_marginStart="20dp"-->
+<!--                android:onClick="@{() -> click.addType(5)}"-->
+<!--                android:src="@drawable/action_work"-->
+<!--                app:layout_constraintBottom_toBottomOf="@id/tvBottom"-->
+<!--                app:layout_constraintStart_toEndOf="@id/ivSport"-->
+<!--                app:layout_constraintTop_toTopOf="@id/tvBottom"-->
+<!--                tools:ignore="ContentDescription" />-->
+<!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
 
-    </LinearLayout>
-</RelativeLayout>
+<!--    </LinearLayout>-->
+
 </layout>

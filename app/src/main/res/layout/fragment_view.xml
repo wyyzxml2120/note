@@ -13,7 +13,7 @@
         xmlns:circle="http://schemas.android.com/apk/res/com.nlk.note"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#2FA2FD">
+        android:background="#00BEFC">
 
         <TextView
             android:id="@+id/tvDay"

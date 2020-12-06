@@ -14,7 +14,7 @@
         xmlns:circle="http://schemas.android.com/apk/res/com.nlk.note"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#2FA2FD">
+        android:background="#00BEFC">
 
         <com.nlk.note.rewriteview.CircleImageView
             android:id="@+id/ivHead"
@@ -68,7 +68,7 @@
             android:id="@+id/ivFun1"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:src="@drawable/add"
+            android:src="@drawable/icon_work_add"
             android:layout_marginTop="20dp"
             app:layout_constraintStart_toStartOf="@id/view1"
             app:layout_constraintEnd_toStartOf="@id/ivFun2"
@@ -88,7 +88,7 @@
             android:id="@+id/ivFun2"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:src="@drawable/add"
+            android:src="@drawable/icon_work_add"
             app:layout_constraintStart_toEndOf="@id/ivFun1"
             app:layout_constraintEnd_toStartOf="@id/ivFun3"
             app:layout_constraintTop_toTopOf="@id/ivFun1"
@@ -107,7 +107,8 @@
             android:id="@+id/ivFun3"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:src="@drawable/add"
+            android:src="@drawable/icon_work_add"
+            android:onClick="@{()->click.changeTheme()}"
             app:layout_constraintStart_toEndOf="@id/ivFun2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/ivFun1"
@@ -117,6 +118,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/mine_theme"
+            android:onClick="@{()->click.changeTheme()}"
             android:textStyle="bold"
             app:layout_constraintTop_toBottomOf="@id/ivFun1"
             app:layout_constraintStart_toStartOf="@id/ivFun3"

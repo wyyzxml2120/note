@@ -41,7 +41,7 @@ public class MineFragment extends BaseFragment {
     public class ClickProxy {
 
         public void changeTheme(){
-            nav().navigate(R.id.action_MineFragment_to_ChangeThemeFragment);
+            nav().navigate(R.id.action_MineFragment_to_ChangeThemeActivity);
         }
     }
 }
