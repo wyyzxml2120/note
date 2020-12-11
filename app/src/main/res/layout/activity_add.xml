@@ -92,7 +92,7 @@
             android:id="@+id/groupSchedule"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:visibility="gone"
+            android:visibility="visible"
             app:constraint_referenced_ids="tvDay1,tvDay2,tvDay3,tvDay4,edtSchedule" />
 
         <TextView
@@ -185,8 +185,8 @@
             android:id="@+id/groupSkill"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:visibility="visible"
-            app:constraint_referenced_ids="edtSkillTitle" />
+            android:visibility="gone"
+            app:constraint_referenced_ids="edtSkillTitle,tvTime,edtSkillContent" />
 
         <EditText
             android:id="@+id/edtSkillTitle"
