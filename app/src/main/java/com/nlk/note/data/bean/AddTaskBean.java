@@ -1,19 +1,19 @@
 package com.nlk.note.data.bean;
 
 public class AddTaskBean {
-    private int moduleIsShow;
+    private int moduleType;
     private int scheduleTime;
     private String skillTitle;
     private String skillContent;
     private String ideaContent;
     private String scheduleContent;
 
-    public int getModuleIsShow() {
-        return moduleIsShow;
+    public int getModuleType() {
+        return moduleType;
     }
 
-    public void setModuleIsShow(int moduleIsShow) {
-        this.moduleIsShow = moduleIsShow;
+    public void setModuleType(int moduleType) {
+        this.moduleType = moduleType;
     }
 
     public int getScheduleTime() {

@@ -4,15 +4,13 @@
 
     <data>
 
-        <import type="android.view.View" />
-
         <variable
             name="click"
-            type="com.nlk.note.ui.page.MatterFragment.ClickProxy" />
+            type="com.nlk.note.ui.model.addtask.AddActivity.ClickProxy" />
 
         <variable
             name="view"
-            type="com.nlk.note.ui.state.MatterViewModel" />
+            type="com.nlk.note.ui.model.addtask.AddTaskViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -43,10 +41,12 @@
             android:id="@+id/tvSchedule"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:textColor="#666666"
+            android:textColor="@color/add_type_selector"
             android:layout_marginStart="60dp"
+            android:textSize="20sp"
+            android:textStyle="bold"
             android:text="@string/add_schedule"
+            android:focusable="@{view.moduleType == 1}"
             app:layout_constraintTop_toTopOf="@id/tabBar"
             app:layout_constraintBottom_toBottomOf="@id/tabBar"
             app:layout_constraintStart_toStartOf="@id/tabBar"
@@ -56,9 +56,11 @@
             android:id="@+id/tvIdea"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:textColor="#666666"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/add_type_selector"
             android:text="@string/add_idea"
+            android:focusable="@{view.moduleType == 2}"
             app:layout_constraintTop_toTopOf="@id/tabBar"
             app:layout_constraintBottom_toBottomOf="@id/tabBar"
             app:layout_constraintStart_toEndOf="@id/tvSchedule"
@@ -69,10 +71,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20sp"
-            android:textColor="#ffffff"
             android:textStyle="bold"
+            android:textColor="@color/add_type_selector"
             android:layout_marginEnd="60dp"
             android:text="@string/add_skill"
+            android:focusable="@{view.moduleType == 3}"
             app:layout_constraintTop_toTopOf="@id/tabBar"
             app:layout_constraintBottom_toBottomOf="@id/tabBar"
             app:layout_constraintStart_toEndOf="@id/tvIdea"
