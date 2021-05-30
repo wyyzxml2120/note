@@ -13,17 +13,27 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
+import com.google.android.material.tabs.TabLayout;
 import com.nlk.baseframe.ui.page.BaseFragment;
+import com.nlk.jyweather.JYWeather;
 import com.nlk.note.R;
 import com.nlk.note.databinding.FragmentMatterBinding;
 import com.nlk.note.db.WorkCode;
 
+import com.nlk.note.ui.model.addtask.AddTaskViewModel;
 import com.nlk.note.ui.model.changeTheme.WorkAdapter;
+import com.nlk.note.ui.page.matter.IdeaFragment;
+import com.nlk.note.ui.page.matter.ScheduleFragment;
+import com.nlk.note.ui.page.matter.SkillFragment;
 import com.nlk.note.ui.state.MatterViewModel;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.TimeZone;
@@ -32,12 +42,14 @@ public class MatterFragment extends BaseFragment {
 
     private FragmentMatterBinding fMatterBin;
     private MatterViewModel matterViewModel;
-    private PopupWindow popupWindow;
+
+
+    private List<Fragment> mFragments = new ArrayList<>();
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        matterViewModel = new MatterViewModel(requireActivity().getApplication());
+        matterViewModel = new ViewModelProvider(this).get(MatterViewModel.class);
     }
 
     @Override
@@ -45,8 +57,6 @@ public class MatterFragment extends BaseFragment {
                              @Nullable Bundle savedInstanceState) {
         fMatterBin =  DataBindingUtil.inflate(inflater, R.layout.fragment_matter,container,false);
         return fMatterBin.getRoot();
-
-
     }
 
     @Override
@@ -56,124 +66,45 @@ public class MatterFragment extends BaseFragment {
         fMatterBin.setClick(new ClickProxy());
         fMatterBin.setView(matterViewModel);
 
-
-//        JYWeather myWeather = new JYWeather(this.getActivity(),"b9b5a812047544d7be3b2c24f65e23b7");
-//        new Thread(new Runnable() {
-//            @Override
-//            public void run() {
-//                String weather = myWeather.getWeather();
-//                Log.d("weather",weather);
-//            }
-//        }).start();
-
-
-        //获取当前日期
-        long a = System.currentTimeMillis();
-        //根据时间戳还原日期
-        Date date = new Date(a);
-        @SuppressLint("SimpleDateFormat") SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        String aa = format.format(date);
-        Log.d("aaa",a+"---"+aa);
-
-        boolean is = isSameDay(a,a+25200000,TimeZone.getDefault());
-        if (is){
-            Log.d("aaa","aaa");
-        }else {
-            Log.d("aaa","bbb");
-        }
-
-
         init();
 
-
-        matterViewModel.getViewMatter().observe(getViewLifecycleOwner(), viewMatterBean -> {
-            matterViewModel.addContent.set(viewMatterBean.getAddContent());
-            matterViewModel.addColumnShow.set(viewMatterBean.isAddColumnShow());
-            matterViewModel.addIconShow.set(viewMatterBean.isAddIconShow());
-            matterViewModel.addType.set(viewMatterBean.getAddType());
-        });
-
-
     }
 
-    public boolean isSameDay(long millis1, long millis2, TimeZone timeZone) {
-        long interval = millis1 - millis2;
-        return interval < 86400000 && interval > -86400000 && millis2Days(millis1, timeZone) == millis2Days(millis2, timeZone);
-    }
 
-    private long millis2Days(long millis, TimeZone timeZone) {
-        return (((long) timeZone.getOffset(millis)) + millis) / 86400000;
-    }
 
     public class ClickProxy {
         public void clickAddIcon(){
             //跳到具体界面
             nav().navigate(R.id.action_MatterFragment_to_AddActivity);
-
-        }
-
-
-        public void addType(int type){
-            matterViewModel.addType.set(type);
-        }
-
-        public void addData(){
-            if (matterViewModel.addType.get() == 0 || TextUtils.isEmpty(matterViewModel.addContent.get())){
-                Toast.makeText(getActivity(), "请输入内容", Toast.LENGTH_SHORT).show();
-            }else {
-                matterViewModel.addColumnShow.set(false);
-                matterViewModel.addIconShow.set(true);
-                //添加数据
-                int typeIcon = R.drawable.action_no;
-                switch (matterViewModel.addType.get()){
-                    case 1:
-                        typeIcon = R.drawable.action_happy;
-                        break;
-                    case 2:
-                        typeIcon = R.drawable.action_learn;
-                        break;
-                    case 3:
-                        typeIcon = R.drawable.action_life;
-                        break;
-                    case 4:
-                        typeIcon = R.drawable.action_sport;
-                        break;
-                    case 5:
-                        typeIcon = R.drawable.action_work;
-                        break;
-                }
-                WorkCode workCode = new WorkCode(matterViewModel.addType.get(),typeIcon,matterViewModel.addContent.get(),System.currentTimeMillis(),0,false);
-                new Thread() {
-                    @Override
-                    public void run() {
-                        matterViewModel.insertWork(workCode);
-                    }
-                }.start();
-            }
         }
     }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        //EventBus.getDefault().unregister(this);
     }
 
     private void init(){
-        //加载待做列表
-        matterViewModel.getWorks()
-                .observe(getViewLifecycleOwner(),workCodes -> {
-                    StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL);
-                    fMatterBin.recycler.setLayoutManager(layoutManager);
-                    List<WorkCode> list =  matterViewModel.getWorks().getValue();
-                    WorkAdapter workAdapter = new WorkAdapter(list);
-                    fMatterBin.recycler.setAdapter(workAdapter);
-                });
+        //获取当前天气
+//        JYWeather myWeather = new JYWeather(this.getActivity(),"b9b5a812047544d7be3b2c24f65e23b7");
+//        new Thread(() -> {
+//            String weather = myWeather.getWeather();
+//            matterViewModel.nowWeather.set(weather);
+//            Log.d("weather",weather);
+//        }).start();
 
-        //加载时间
+        fMatterBin.mTableLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
+        mFragments.add(new ScheduleFragment());
+        mFragments.add(new IdeaFragment());
+        mFragments.add(new SkillFragment());
 
-        //加载天气
+        ViewPagerAdapter adapter = new ViewPagerAdapter(getParentFragmentManager(), mFragments, getTabTitle());
+        fMatterBin.mViewPager.setAdapter(adapter);
+        fMatterBin.mTableLayout.setupWithViewPager(fMatterBin.mViewPager);
+    }
 
+    private List<String> getTabTitle() {
+        return Arrays.asList("日程", "创意", "技能");
     }
 
 

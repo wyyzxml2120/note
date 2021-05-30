@@ -4,7 +4,12 @@
     <color name="colorPrimaryDark">#00BEFC</color>
     <color name="colorAccent">#00BEFC</color>
 
+    <color name="colorTheme">#00BEFC</color>
+
     <color name="color1">#333333</color>
     <color name="color2">#ffffff</color>
+
+    <color name="colorDateSelected">#00BEFC</color>
+    <color name="colorDateNoSelected">#BDBDBF</color>
 
 </resources>

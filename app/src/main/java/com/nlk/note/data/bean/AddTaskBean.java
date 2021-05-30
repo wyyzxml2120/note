@@ -5,6 +5,7 @@ public class AddTaskBean {
     private int scheduleTime;
     private String skillTitle;
     private String skillContent;
+    private String skillTime;
     private String ideaContent;
     private String scheduleContent;
 
@@ -54,5 +55,13 @@ public class AddTaskBean {
 
     public void setScheduleContent(String scheduleContent) {
         this.scheduleContent = scheduleContent;
+    }
+
+    public String getSkillTime() {
+        return skillTime;
+    }
+
+    public void setSkillTime(String skillTime) {
+        this.skillTime = skillTime;
     }
 }

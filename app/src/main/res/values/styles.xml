@@ -30,5 +30,11 @@
         <item name="android:textSize">18sp</item>
         <item name="android:textColor">#666666</item>
     </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="tabLayout_style" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">18sp</item>
+    </style>
     
 </resources>

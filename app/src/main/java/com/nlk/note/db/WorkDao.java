@@ -5,6 +5,7 @@ import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
+import androidx.room.Update;
 
 import java.util.List;
 
@@ -21,14 +22,21 @@ public interface WorkDao {
     @Query("select count(*) from WorkCode")
     int getWorkCount();
 
-//    @Query("SELECT * FROM WorkCode WHERE Type == :type")
-//    Single<List<WorkCode>> getWorkCode(int type);
+    @Query("update WorkCode set skillTime =:value + skillTime where Id =:id")
+    void updateSkillTime(long value, int id);
 
     @Query("SELECT * FROM WorkCode order by id asc")
     LiveData<List<WorkCode>> getWorks();
-//
-//    @Query("select Name from DictCode WHERE Type == :type and Code==:code")
-//    String getDictName(String type, String code);
+
+    @Query("select * from WorkCode WHERE type == 1 order by scheduleTime asc" )
+    LiveData<List<WorkCode>> getScheduleWorks();
+
+    @Query("select * from WorkCode WHERE type == 2" )
+    LiveData<List<WorkCode>> getIdeaWorks();
+
+    @Query("select * from WorkCode WHERE type == 3" )
+    LiveData<List<WorkCode>> getSkillWorks();
+
 //
 //    @Query("SELECT * FROM DictCode WHERE Code LIKE :code || '%' AND Type == :type")
 //    Single<List<DictCode>> getSchoolCode(String type, String code);

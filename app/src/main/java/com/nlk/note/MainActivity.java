@@ -6,13 +6,17 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
 
+import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.nlk.note.data.callback.SharedViewModel;
 import com.nlk.note.databinding.ActivityMainBinding;
+import com.nlk.note.service.ForegroundService;
 import com.nlk.note.ui.state.MainViewModel;
 import com.nlk.note.ui.state.MatterViewModel;
 import com.nlk.note.ui.state.ShareViewModel;
@@ -29,9 +33,8 @@ public class MainActivity extends AppCompatActivity {
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         mainViewModel = new MainViewModel(getApplication());
-        //shareViewModel =
 
-        mainViewModel.isShowBottom.set(true);
+
         binding.setView(mainViewModel);
 
 

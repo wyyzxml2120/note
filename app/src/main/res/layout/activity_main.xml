@@ -23,7 +23,6 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:background="#FBFBFB"
-            android:visibility="@{view.isShowBottom?View.VISIBLE:View.GONE}"
             app:itemIconTint="@color/bottom_tab"
             app:itemTextColor="@color/bottom_text_tab"
             app:layout_constraintBottom_toBottomOf="parent"
